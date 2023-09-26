@@ -3,6 +3,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabs, {tabName} from './Tabs';
+import Product, {ProductScreenID} from '../screen/Product';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,9 @@ const Route = () => {
               name={tabName}
               component={Tabs}
             />
+          </Stack.Group>
+          <Stack.Group screenOptions={{headerShown: false}}>
+            <Stack.Screen name={ProductScreenID} component={Product} />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>

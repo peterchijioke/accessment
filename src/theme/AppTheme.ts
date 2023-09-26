@@ -5,6 +5,7 @@ const AppTheme = {
   secondary: '#fff',
   text: '#151515',
   button: '#DB3C25',
+  wrapper: '#F9F9F9',
 };
 
 export default AppTheme;

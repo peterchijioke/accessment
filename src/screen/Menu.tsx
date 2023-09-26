@@ -8,7 +8,7 @@ import {
   ProductCardList,
   SearchInput,
   SearchInputWrap,
-} from '../component/menu/Elements';
+} from '../component/menu/MenuElements';
 import ProductCard from '../component/menu/ProductCard';
 export const menuScreenID = 'Menu';
 
