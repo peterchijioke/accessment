@@ -62,7 +62,13 @@ export default function Tabs() {
         })}>
         <Tab.Screen name={homeScreenID} component={Home} />
         <Tab.Screen name={menuScreenID} component={Menu} />
-        <Tab.Screen name={cartScreenID} component={Cart} />
+        <Tab.Screen
+          name={cartScreenID}
+          options={{
+            headerShown: false,
+          }}
+          component={Cart}
+        />
         <Tab.Screen name={accountScreenID} component={Account} />
       </Tab.Navigator>
     </View>

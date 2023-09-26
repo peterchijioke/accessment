@@ -19,9 +19,15 @@ import {
   ProductDetailsWrapper,
   TopologyNormal,
 } from '../component/product/ProductElement';
-import {useWindowDimensions} from 'react-native';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  useWindowDimensions,
+} from 'react-native';
 import {Button, TextWrap, Topography} from '../component/menu/MenuElements';
 import Carousel, {IItem} from '../component/product/Carousel';
+import {tabName} from '../routes/Tabs';
+import {cartScreenID} from './Cart';
 
 export const ProductScreenID = 'Product';
 const data: Array<IItem> = [
@@ -31,8 +37,8 @@ const data: Array<IItem> = [
   {item: require('../assets/images/a.png')},
 ];
 const Product = () => {
-  const navigation = useNavigation();
-  const {width, height} = useWindowDimensions();
+  const navigation: any = useNavigation();
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [value, setValue] = useState(0);
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -71,14 +77,26 @@ const Product = () => {
         return 'Extra';
     }
   };
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const totalWidth = e.nativeEvent.layoutMeasurement.width;
+    const xPosition = e.nativeEvent.contentOffset.x;
+    const currentValue = Math.floor(xPosition / totalWidth);
+    setCurrentIndex(currentValue);
+  };
   return (
     <Wrapper style={{backgroundColor: AppTheme.secondary}}>
       <ProductDetailsScrollWrapper>
-        <Carousel data={data} />
+        <Carousel onScroll={onScroll} data={data} />
         <FooterSection>
           <PaginationWrap>
             {data?.map((_, index: number) => (
-              <PaginationDots key={index.toString()} />
+              <PaginationDots
+                style={{
+                  backgroundColor:
+                    currentIndex === index ? AppTheme.primary : '#d9d9d9',
+                }}
+                key={index.toString()}
+              />
             ))}
           </PaginationWrap>
         </FooterSection>
@@ -129,7 +147,11 @@ const Product = () => {
           </BarButton>
         </CountIncrementWrapper>
         <ButtonWrapper>
-          <Button style={{height: 48}}>
+          <Button
+            style={{height: 48}}
+            onPress={() =>
+              navigation.navigate(tabName, {screen: `${cartScreenID}`})
+            }>
             <Topography style={{color: AppTheme.secondary}}>
               Add to cart
             </Topography>

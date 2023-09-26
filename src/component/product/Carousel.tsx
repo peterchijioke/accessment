@@ -11,11 +11,13 @@ export interface IItem {
 }
 interface ICarouse {
   data: [IItem] | any;
+  onScroll: any;
 }
-const Carousel = ({data}: ICarouse) => {
+const Carousel = ({data, onScroll}: ICarouse) => {
   const {height, width} = useWindowDimensions();
   return (
     <ProductScrollList
+      onScroll={onScroll}
       contentContainerStyle={{flexGrow: 1}}
       data={data}
       horizontal
