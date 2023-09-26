@@ -12,7 +12,7 @@ import AppTheme from '../../theme/AppTheme';
 import styled from 'styled-components/native';
 import CartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
-import {ProductScreenID} from '../../screen/Product';
+import {ProductScreenID} from '../../screens/Product';
 
 export default function ProductCard() {
   const navigation: any = useNavigation();
