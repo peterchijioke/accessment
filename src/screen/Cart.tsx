@@ -46,7 +46,13 @@ const Cart = () => {
         </Topography>
         <Topography style={{color: AppTheme.text}}>£3.99</Topography>
       </TextWrap>
-      <Button style={{height: 45, marginBottom: 40}}>
+      <Button
+        style={{
+          height: 45,
+          marginBottom: 40,
+          width: '90%',
+          alignSelf: 'center',
+        }}>
         <Topography style={{color: '#fff'}}>Checkout - £90</Topography>
       </Button>
     </Wrapper>
