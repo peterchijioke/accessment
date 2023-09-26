@@ -5,7 +5,6 @@ export const EachProductWrapper = styled.View`
   display: flex;
 
   flex-direction: row;
-  /* justify-content: space-between; */
 `;
 export const CartProductImage = styled.Image`
   padding: 0px;

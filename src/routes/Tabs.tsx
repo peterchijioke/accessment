@@ -2,10 +2,7 @@ import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {useNavigation} from '@react-navigation/native';
 import Home, {homeScreenID} from '../screens/Home';
-import VideoIcon from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import CartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Account, {accountScreenID} from '../screens/Account';
@@ -17,7 +14,6 @@ import ProfileImage from '../component/common/ProfileImage';
 const Tab = createBottomTabNavigator();
 export const tabName = 'Tab';
 export default function Tabs() {
-  const navigation = useNavigation();
   return (
     <View style={{flexGrow: 1}}>
       <Tab.Navigator
@@ -74,29 +70,3 @@ export default function Tabs() {
     </View>
   );
 }
-const styles: any = StyleSheet.create({
-  cartTop: {
-    width: 40,
-    margin: 0,
-    height: 40,
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'tomato',
-    borderRadius: 20,
-  },
-  wrap: {
-    width: '82%',
-    marginLeft: 5,
-    marginRight: 5,
-    borderRadius: 5,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    overflow: 'hidden',
-    backgroundColor: 'white',
-    padding: 2,
-  },
-});
